@@ -22,14 +22,17 @@ public class Principal {
         d2.setMatriculas(new Matricula[]{m3,m4});
         d3.setMatriculas(new Matricula[]{m5});
 
-        //Saber as disciplinas em que José está matriculado
-        for (Matricula m : a3.getMatriculas()) {
+        //Saber as disciplinas em que Maria está matriculado
+        for (Matricula m : a2.getMatriculas()) {
             System.out.println(m.getDisciplina().getNomeDisciplina());
+
         }
 
         //Saber quem está cursando POO
-        for (Matricula m : d1.getMatriculas())
+        for (Matricula m : d1.getMatriculas()) {
             System.out.println(m.getAluno().getNome());
+            System.out.println(m.getNota());
+        }
 
     }
 }
