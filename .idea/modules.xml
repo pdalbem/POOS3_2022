@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ClasseAssociativa/ClasseAssociativa.iml" filepath="$PROJECT_DIR$/ClasseAssociativa/ClasseAssociativa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CompraLivros/CompraLivros.iml" filepath="$PROJECT_DIR$/CompraLivros/CompraLivros.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exercicio1_Investimento/Exercicio1_Investimento.iml" filepath="$PROJECT_DIR$/Exercicio1_Investimento/Exercicio1_Investimento.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exercicio3_Covid/Exercicio3_Covid.iml" filepath="$PROJECT_DIR$/Exercicio3_Covid/Exercicio3_Covid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ExercicioFuncionarios/ExercicioFuncionarios.iml" filepath="$PROJECT_DIR$/ExercicioFuncionarios/ExercicioFuncionarios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Heranca/Heranca.iml" filepath="$PROJECT_DIR$/Heranca/Heranca.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/POOS3_2022.iml" filepath="$PROJECT_DIR$/.idea/POOS3_2022.iml" />
+    </modules>
+  </component>
+</project>
