@@ -14,6 +14,12 @@ public abstract class Pessoa {
     public Pessoa() {
     }
 
+    @Override
+    public String toString(){
+        return "Nome: " + this.getEmail();
+    }
+
+
     public String getEndereco() {
         return endereco;
     }

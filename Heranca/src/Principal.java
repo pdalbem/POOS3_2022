@@ -39,5 +39,6 @@ public class Principal {
                              // é decidido qual comportamento o método irá exibir
                             // dependendo do tipo do objeto (PessoaFisica ou PessoaJuridica)
 
+        
     }
 }
