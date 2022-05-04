@@ -19,7 +19,7 @@ public class Aluno   {
             stmt.setInt(1,getIdAluno());
             stmt.setString(2,getProntuario());
             stmt.setString(3,getNome());
-            stmt.setInt(2,getCurso().getIdCurso());
+            stmt.setInt(4,getCurso().getIdCurso());
             stmt.executeUpdate();
             stmt.close();
             conn.close();
