@@ -103,7 +103,7 @@ public class Aluno   {
             String sql = "SELECT * FROM aluno";
             stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 Curso c = Curso.buscar(rs.getInt("curso"));
                 Aluno a = new Aluno(rs.getInt("idAluno"),
                         rs.getString("prontuario"),
