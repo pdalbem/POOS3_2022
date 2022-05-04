@@ -78,7 +78,7 @@ public class Aluno   {
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1,param);
             ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 Curso c = Curso.buscar(rs.getInt("curso"));
                 a = new Aluno(rs.getInt("idAluno"),
                               rs.getString("prontuario"),

@@ -72,7 +72,7 @@ public class Curso {
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1,param);
             ResultSet rs = stmt.executeQuery();
-            if (rs.next())
+            while (rs.next())
                 c = new Curso(rs.getInt("idCurso"), rs.getString("nome"));
 
             stmt.close();
