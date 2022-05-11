@@ -1,0 +1,25 @@
+CREATE TABLE curso
+(
+idCurso INTEGER PRIMARY KEY,
+nome TEXT
+);
+
+
+CREATE TABLE cidade
+(
+idCidade INTEGER PRIMARY KEY,
+nome TEXT
+);
+
+CREATE TABLE aluno
+(
+idAluno INTEGER PRIMARY KEY,
+prontuario TEXT,
+nome TEXT,
+curso INTEGER,
+cidade INTEGER,
+FOREIGN KEY (curso) REFERENCES curso(idCurso),
+FOREIGN KEY (cidade) REFERENCES cidade(idCidade)
+);
+
+
