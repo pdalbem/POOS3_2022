@@ -1,0 +1,17 @@
+CREATE TABLE partido
+(numero integer primary key,
+nome text,
+sigla text);
+
+CREATE TABLE cargo
+(idcargo integer primary key,
+cargo text);
+
+CREATE TABLE candidato
+(numero integer primery key,
+nome text,
+partido integer,
+cargo integer,
+foreign key (partido) references partido(numero),
+foreign key (cargo) references cargo(idcargo));
+
