@@ -4,6 +4,8 @@ import com.example.bdjavafx.data.DepartamentoSQLiteDAO;
 import com.example.bdjavafx.data.FuncionarioSQLiteDAO;
 import com.example.bdjavafx.model.Departamento;
 import com.example.bdjavafx.model.Funcionario;
+import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import javafx.util.StringConverter;
 
 import java.net.URL;
@@ -33,6 +36,7 @@ public class FuncController implements Initializable {
     private TableColumn<Funcionario, String> colCPFFunc;
     @FXML
     private TableColumn<Funcionario, String> colNomeFunc;
+    @FXML TableColumn<Funcionario,String> colDepFunc;
 
 
     ObservableList<Funcionario> listView = FXCollections.observableArrayList();
@@ -111,7 +115,7 @@ public class FuncController implements Initializable {
         listView.clear();
         colCPFFunc.setCellValueFactory(new PropertyValueFactory<>("cpf"));
         colNomeFunc.setCellValueFactory(new PropertyValueFactory<>("nome"));
-
+        colDepFunc.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getDepartamento().getNome()));
 
         listView = FXCollections.observableArrayList(new FuncionarioSQLiteDAO().buscarTodos());
         tblFuncionario.setItems(listView);

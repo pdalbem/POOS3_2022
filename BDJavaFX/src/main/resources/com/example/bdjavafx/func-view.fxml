@@ -45,7 +45,8 @@
     <TableView fx:id="tblFuncionario" onMouseClicked="#selecionaFunc" prefHeight="200.0" prefWidth="200.0">
         <columns>
             <TableColumn fx:id="colCPFFunc" prefWidth="100.0" text="CPF" />
-            <TableColumn fx:id="colNomeFunc" prefWidth="75.0" text="Nome" />
+            <TableColumn fx:id="colNomeFunc" prefWidth="100.0" text="Nome" />
+            <TableColumn fx:id="colDepFunc" prefWidth="150.0" text="Departamento" />
 
         </columns>
     </TableView>
