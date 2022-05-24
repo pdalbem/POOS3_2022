@@ -1,0 +1,15 @@
+CREATE TABLE departamento
+(id integer primary key autoincrement,
+nome text,
+sigla text
+);
+
+
+CREATE TABLE funcionario
+(id integer primary key autoincrement,
+cpf text,
+nome text,
+departamento integer,
+foreign key (departamento) references departamento (id)
+);
+

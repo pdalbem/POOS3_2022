@@ -1,7 +1,6 @@
 package data;
 
 import model.Aluno;
-
 import java.util.List;
 
 public interface AlunoDAO {

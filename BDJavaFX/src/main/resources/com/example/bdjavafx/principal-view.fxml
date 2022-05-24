@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bdjavafx.controller.PrincipalController">
+    <top>
+    <MenuBar>
+        <Menu text="Cadastro">
+        <MenuItem text="Departamento" onAction="#showDep"/>
+        <MenuItem text="Funcionário" onAction="#showFunc"/>
+        </Menu>
+
+        <Menu fx:id="menuSair"  text="Sair">
+        <MenuItem text="Sair" onAction="#sair"/>
+        </Menu>
+    </MenuBar>
+</top>
+</BorderPane>
