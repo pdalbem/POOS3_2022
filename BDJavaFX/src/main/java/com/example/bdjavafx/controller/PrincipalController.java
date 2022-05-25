@@ -12,9 +12,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class PrincipalController {
-@FXML private Menu menuSair;
 
-    @FXML
+
     public void sair(ActionEvent actionEvent) {
         System.exit(0);
     }
@@ -22,7 +21,7 @@ public class PrincipalController {
     public void showDep(ActionEvent actionEvent) {
        Parent root;
         try {
-           root = FXMLLoader.load(EmpresaApplication.class.getResource("depto-view.fxml"));
+            root = FXMLLoader.load(EmpresaApplication.class.getResource("depto-view.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Departamento");
             stage.setScene(new Scene(root, 450, 450));

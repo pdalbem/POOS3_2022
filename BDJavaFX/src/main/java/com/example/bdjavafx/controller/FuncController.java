@@ -5,7 +5,6 @@ import com.example.bdjavafx.data.FuncionarioSQLiteDAO;
 import com.example.bdjavafx.model.Departamento;
 import com.example.bdjavafx.model.Funcionario;
 import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,7 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.util.Callback;
 import javafx.util.StringConverter;
 
 import java.net.URL;
@@ -22,20 +20,26 @@ import java.util.ResourceBundle;
 
 public class FuncController implements Initializable {
 
+    //estes atributos PRECISAM ter os mesmos nomes
+    // do fx:id dos componentes especificados no arquivo FXML  (func-view.fxml).
     @FXML private TextField txtcpffunc;
     @FXML
     private TextField txtnomefunc;
-    @FXML private ComboBox<Departamento> comboDepartamento;
+    @FXML private ComboBox<Departamento> comboDepartamento; //comboBox irá armazenar objetos Departamento
     @FXML private Button btnNovo;
     @FXML private Button btnSalvar;
     @FXML private Button btnAtualizar;
     @FXML private Button btnExcluir;
     @FXML
-    private TableView<Funcionario> tblFuncionario;
+    private TableView<Funcionario> tblFuncionario;//TableView vai mostrar objetos do tipo Funcionario
     @FXML
     private TableColumn<Funcionario, String> colCPFFunc;
     @FXML
     private TableColumn<Funcionario, String> colNomeFunc;
+
+    ///embora atributo departamento seja da classe Departamento,
+    // queremos mostrar na tabela o nome do departamento, que é String.
+    // Por isso, a definição de colDepFunc é TableColumn<Funcionario,String>
     @FXML TableColumn<Funcionario,String> colDepFunc;
 
 
@@ -57,9 +61,9 @@ public class FuncController implements Initializable {
 
         Funcionario f = new Funcionario(txtcpffunc.getText(),
                                         txtnomefunc.getText(),
-                 comboDepartamento.getValue());
+                 comboDepartamento.getValue());//comboBox já retorna objeto departamento, necessário para chamar o construtor de Funcionario
         funcionarioSQLiteDAO.salvar(f);
-        preencherTabela();
+        preencherTabela();//vai atualizar a tablea após a inserção
 
         txtcpffunc.clear();
         txtnomefunc.clear();
@@ -74,6 +78,8 @@ public class FuncController implements Initializable {
     }
 
     public void atualizar(ActionEvent actionEvent) {
+        //Como a tblFuncionario armazena objetos Funcionario,
+        // o comando abaixo já retorna o objeto Funcionario selecionado na tabela pelo usuário
         Funcionario f =  tblFuncionario.getSelectionModel().getSelectedItem();
         f.setCpf(txtcpffunc.getText());
         f.setNome(txtnomefunc.getText());
@@ -113,8 +119,8 @@ public class FuncController implements Initializable {
 
     public void preencherTabela(){
         listView.clear();
-        colCPFFunc.setCellValueFactory(new PropertyValueFactory<>("cpf"));
-        colNomeFunc.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        colCPFFunc.setCellValueFactory(new PropertyValueFactory<>("cpf")); //cpf é atributo do model Funcionario
+        colNomeFunc.setCellValueFactory(new PropertyValueFactory<>("nome")); //nome é atributo do model Funcionario
         colDepFunc.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getDepartamento().getNome()));
 
         listView = FXCollections.observableArrayList(new FuncionarioSQLiteDAO().buscarTodos());
@@ -127,6 +133,9 @@ public class FuncController implements Initializable {
        ObservableList<Departamento> listViewDepartamento;
        listViewDepartamento = FXCollections.observableArrayList(new DepartamentoSQLiteDAO().buscarTodos());
        comboDepartamento.setItems(listViewDepartamento);
+       //comboDepartamento armazena objetos do tipo Departamento,
+       //mas queremos mostrar apenas o nome do departamento.
+       //Fzemos isso utilizando o setConverter:
        comboDepartamento.setConverter(new StringConverter<>() {
            @Override
            public String toString(Departamento d) {

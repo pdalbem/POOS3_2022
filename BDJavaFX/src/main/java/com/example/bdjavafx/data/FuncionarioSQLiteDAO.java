@@ -16,7 +16,7 @@ public class FuncionarioSQLiteDAO implements FuncionarioDAO{
         try(PreparedStatement stmt=ConnectionFactory.criaStatement(sql)) {
             stmt.setString(1, f.getCpf());
             stmt.setString(2, f.getNome());
-            stmt.setInt(3,f.getDepartamento().getId());
+            stmt.setInt(3,f.getDepartamento().getId());// retorna o id do depto do funcionario, pois chave-estrangeira é int
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

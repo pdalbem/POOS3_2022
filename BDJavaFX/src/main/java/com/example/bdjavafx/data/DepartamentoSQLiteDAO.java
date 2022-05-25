@@ -11,7 +11,7 @@ import java.util.List;
 public class DepartamentoSQLiteDAO implements DepartamentoDAO{
     @Override
     public void salvar(Departamento d) {
-        String sql = "INSERT INTO departamento (nome,sigla) values (?,?)";
+        String sql = "INSERT INTO departamento  (nome,sigla) values (?,?)";
         try(PreparedStatement stmt=ConnectionFactory.criaStatement(sql)) {
             stmt.setString(1, d.getNome());
             stmt.setString(2, d.getSigla());
